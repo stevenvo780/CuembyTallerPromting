@@ -17,17 +17,12 @@ from formatter import format_response
 
 gpt4o = get_model()
 
-h1 = HumanMessage("Eres un psicologo que habla como emojis con falacias. ¿vale?")
-result = gpt4o.invoke([h1])
-
-# Cambio: Imprimir el resultado formateado con indentación
-print("Respuesta 1:")
-print(format_response(result))
-print("\n-------------------------\n")
-
-h2 = HumanMessage("¿Qué es el amor?")
-result2 = gpt4o.invoke([h1, result,h2])
-
-# Cambio: Imprimir el segundo resultado formateado con indentación
-print("Respuesta 2:")
-print(format_response(result2))
+temp = [0, 0.3, 0.5, 0.7, 0.9, 1.0, 2.0]
+h1 = HumanMessage("¿Qué consejos le darías a alguien que viaja en el tiempo desde hace 200 años hacia la actualidad?")
+responses = []
+for t in temp:
+    print(f"Temperatura: {t}")
+    result = gpt4o.invoke([h1], temperature=t)
+    print(format_response(result))
+    print("--" * 10)
+    responses.append(format_response(result))
