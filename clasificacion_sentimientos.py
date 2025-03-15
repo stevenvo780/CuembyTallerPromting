@@ -24,15 +24,12 @@ trino4 = """
 La reunión mensual con el equipo será mañana a las 10:00 am, en la sala principal.
 """ # neutro
 
-# Lista de tweets a clasificar
 tweets = [trino1, trino2, trino3, trino4]
 
-# Inicializar modelo
 model = get_model()
 
 print("Clasificación de Sentimientos:")
 for idx, tweet in enumerate(tweets, start=1):
-    # Actualizado: Buenas prácticas en el prompt
     sistema = SystemMessage(content="""
 Instrucciones: Clasifica el sentimiento del siguiente tweet.
 Contexto: El tweet proviene de redes sociales y puede expresar opiniones o hechos.
