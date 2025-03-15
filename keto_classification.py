@@ -1,8 +1,12 @@
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
 import openai
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage
 
-OPENROUTER_API_KEY = "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"
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 openai.api_key = OPENROUTER_API_KEY
 
 def get_model(model_name="openai/gpt-4o-mini", openai_api_key=OPENROUTER_API_KEY, openai_api_base="https://openrouter.ai/api/v1") -> ChatOpenAI:
