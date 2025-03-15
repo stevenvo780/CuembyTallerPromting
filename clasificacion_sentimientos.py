@@ -42,5 +42,5 @@ Tono: Formal y conciso.
 Ejemplo: Si el tweet dice 'Me encanta este día', responde 'positivo'.
 """)
     humano = HumanMessage(content=tweet)
-    resultado = model.invoke([sistema, humano])
+    resultado = model.invoke([sistema, humano], temperature=0.2)
     print(f"Tweet {idx}: {resultado.content.strip()}")
