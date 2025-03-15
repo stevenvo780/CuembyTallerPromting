@@ -9,8 +9,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copiar todos los archivos al contenedor
 COPY . .
 
-# Hacer ejecutable el script principal
-RUN chmod +x run_examples.py
+# Exponer el puerto para la API
+EXPOSE 5000
 
-# Comando para ejecutar cuando se inicie el contenedor
-CMD ["python", "run_examples.py"]
+# Por defecto, iniciar la API usando Python directamente
+CMD ["python", "entrypoint.py"]
